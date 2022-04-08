@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
-
 void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
@@ -16,7 +15,8 @@ class MyApp extends StatelessWidget {
         style: TextButton.styleFrom(backgroundColor: color),
         onPressed: () {
           playSound(soundNumber);
-        }, child: Text("$soundNumber"),
+        },
+        child: Text("$soundNumber"),
       ),
     );
   }
@@ -28,11 +28,11 @@ class MyApp extends StatelessWidget {
         backgroundColor: Colors.black,
         body: SafeArea(
           child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: <Widget>[
-                buildKey(color: Colors.red, soundNumber: 1),
-                buildKey(color: Colors.orange, soundNumber: 2),
-              ],
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              buildKey(color: Colors.red, soundNumber: 1),
+              buildKey(color: Colors.orange, soundNumber: 2),
+            ],
           ),
         ),
       ),

@@ -3,8 +3,7 @@ import 'package:xylophone_app/main.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  
-testWidgets('To test text name', (WidgetTester tester) async {
+  testWidgets('To test text name', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
@@ -15,25 +14,11 @@ testWidgets('To test text name', (WidgetTester tester) async {
     expect(text, findsOneWidget);
   });
 
-testWidgets('To test text button', (WidgetTester tester) async {
+  testWidgets('To test text button', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
     //verify the finder
     expect(find.byType(TextButton), findsNWidgets(2));
   });
-
-testWidgets('To test text button color', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
-
-    final TextButton = tester.widget<TextButton>(find.byType(TextButton));
-
-    //verify the finder
-    expect(TextButton.style(TextButton.styleFrom.backgroundColor), Colors.red);
-  });
-
 }
-
-
-
