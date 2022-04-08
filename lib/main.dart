@@ -10,7 +10,7 @@ class MyApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
-  Expanded buildKey({required Color color, required int soundNumber}) {
+  Expanded buildKey({color, soundNumber}) {
     return Expanded(
       child: TextButton(
         style: TextButton.styleFrom(backgroundColor: color),
