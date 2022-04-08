@@ -23,4 +23,17 @@ testWidgets('To test text button', (WidgetTester tester) async {
     expect(find.byType(TextButton), findsNWidgets(2));
   });
 
+testWidgets('To test text button color', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(MyApp());
+
+    final TextButton = tester.widget<TextButton>(find.byType(TextButton));
+
+    //verify the finder
+    expect(TextButton.style(TextButton.styleFrom.backgroundColor), Colors.red);
+  });
+
 }
+
+
+
