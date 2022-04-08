@@ -21,4 +21,14 @@ void main() {
     //verify the finder
     expect(find.byType(TextButton), findsNWidgets(2));
   });
+
+  testWidgets('To test text button color', (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(MyApp());
+
+    final myTextButton = tester.widget<TextButton>(find.byType(TextButton));
+
+    //verify the finder
+    expect(TextButton.style(TextButton.styleFrom.backgroundColor), Colors.red);
+  });
 }
