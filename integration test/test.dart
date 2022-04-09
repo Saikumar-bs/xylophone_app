@@ -26,7 +26,6 @@ void main() {
     for (var i = 0; i < 3; i++) {
       await tester.tap(button);
       await Future.delayed(const Duration(seconds: 3));
-      playSound(1);
     }
 
     await tester.pumpAndSettle();
