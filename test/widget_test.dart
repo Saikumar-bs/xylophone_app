@@ -33,15 +33,4 @@ void main() {
     //verify the finder
     expect((myTextButton).style!.backgroundColor, Colors.red);
   });
-
-  testWidgets('To test text button color', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MyApp());
-
-    final myTextButton =
-        tester.widget<TextButton>(find.byKey(const Key('Note 1')));
-
-    //verify the finder
-    expect((myTextButton).style, Colors.red);
-  });
 }

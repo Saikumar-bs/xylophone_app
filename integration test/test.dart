@@ -19,13 +19,16 @@ void main() {
       player.play('note$soundNumber.wav');
     }
 
-    final Finder button = find.byKey(const Key('Note 1'));
+    final Finder button = find.text('Note 1');
 
     //act
-    for (var i = 0; i < 5; i++) {
+
+    for (var i = 0; i < 3; i++) {
       await tester.tap(button);
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 3));
+      playSound(1);
     }
+
     await tester.pumpAndSettle();
 
     //assert
