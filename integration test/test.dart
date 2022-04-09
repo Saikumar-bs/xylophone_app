@@ -7,34 +7,28 @@ import 'package:audioplayers/audioplayers.dart';
 void main() {
   IntegrationTestWidgetsFlutterBinding.ensureInitialized();
 
-  testWidgets('Tap text button 1 for 5 times and 2 for 2 times',
-      (WidgetTester tester) async {
+  testWidgets('Tap text button 1 for 3 times', (WidgetTester tester) async {
     //arrange
     app.main();
     await tester.pumpAndSettle();
 
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Note 1'), findsOneWidget);
 
     void playSound(int soundNumber) {
       final player = AudioCache();
       player.play('note$soundNumber.wav');
     }
 
-    final Finder myTextButton = find.byWidget(TextButton(
-        onPressed: () {
-          playSound(1);
-        },
-        child: Text("1")));
+    final Finder button = find.byKey(const Key('Note 1'));
 
     //act
     for (var i = 0; i < 5; i++) {
-      await tester.tap(myTextButton);
+      await tester.tap(button);
       await Future.delayed(const Duration(seconds: 1));
     }
-
     await tester.pumpAndSettle();
 
     //assert
-    expect(find.text('1'), findsOneWidget);
+    expect(find.text('Note 1'), findsOneWidget);
   });
 }

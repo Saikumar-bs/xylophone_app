@@ -8,7 +8,7 @@ void main() {
     await tester.pumpWidget(MyApp());
 
     // find the text 1.
-    final text = find.text('1');
+    final text = find.text('Note 1');
 
     //verify the finder
     expect(text, findsOneWidget);
@@ -22,13 +22,26 @@ void main() {
     expect(find.byType(TextButton), findsNWidgets(2));
   });
 
+  testWidgets('To test text button background color',
+      (WidgetTester tester) async {
+    // Build our app and trigger a frame.
+    await tester.pumpWidget(MyApp());
+
+    final myTextButton =
+        tester.widget<TextButton>(find.byKey(const Key('Note 1')));
+
+    //verify the finder
+    expect((myTextButton).style!.backgroundColor, Colors.red);
+  });
+
   testWidgets('To test text button color', (WidgetTester tester) async {
     // Build our app and trigger a frame.
     await tester.pumpWidget(MyApp());
 
-    final myTextButton = tester.widget<TextButton>(find.byType(TextButton));
+    final myTextButton =
+        tester.widget<TextButton>(find.byKey(const Key('Note 1')));
 
     //verify the finder
-    expect(TextButton.style(TextButton.styleFrom.backgroundColor), Colors.red);
+    expect((myTextButton).style, Colors.red);
   });
 }

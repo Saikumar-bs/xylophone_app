@@ -9,14 +9,15 @@ class MyApp extends StatelessWidget {
     player.play('note$soundNumber.wav');
   }
 
-  Expanded buildKey({color, soundNumber}) {
+  Expanded buildKey({color, soundNumber, key}) {
     return Expanded(
       child: TextButton(
-        style: TextButton.styleFrom(backgroundColor: color),
+        style:
+            TextButton.styleFrom(backgroundColor: color, primary: Colors.white),
         onPressed: () {
           playSound(soundNumber);
         },
-        child: Text("$soundNumber"),
+        child: Text("Note $soundNumber"),
       ),
     );
   }
@@ -30,8 +31,15 @@ class MyApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: <Widget>[
-              buildKey(color: Colors.red, soundNumber: 1),
-              buildKey(color: Colors.orange, soundNumber: 2),
+              buildKey(
+                color: Colors.red,
+                soundNumber: 1,
+                key: const Key('Note 1'),
+              ),
+              buildKey(
+                  color: Colors.orange,
+                  soundNumber: 2,
+                  key: const Key('Note 2')),
             ],
           ),
         ),
